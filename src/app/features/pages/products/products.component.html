@@ -1,0 +1,45 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+<p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<app-navbar></app-navbar>
+
+<div class="max-w-7xl mx-auto p-5">
+  
+  <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Explore Our Products</h2>
+
+  <section class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      @for (item of products; track item._id) {
+        @if(wishlistReady()){
+          <app-product-item 
+          (fireAddToCart)="addToCart($event)"
+          [isWishList]="isLove(item.id)"
+          [product]="item"></app-product-item>
+        }
+      }
+  </section>
+
+  <div class="flex justify-center items-center mt-8 gap-2">
+    
+    <button class="py-2 px-4 bg-gray-300 text-gray-700 rounded-md disabled:bg-gray-400 transition-all duration-300"
+            (click)="changePage(currentPage - 1)"
+            [disabled]="currentPage === 1">
+      <i class="fa fa-arrow-left"></i>
+    </button>
+
+
+    <!-- Next Button -->
+    <button class="py-2 px-4 bg-gray-300 text-gray-700 rounded-md disabled:bg-gray-400 transition-all duration-300"
+            (click)="changePage(currentPage + 1)"
+            [disabled]="currentPage === productPage?.metadata?.numberOfPages">
+      <i class="fa fa-arrow-right"></i>
+    </button>
+
+  </div>
+
+</div>
+

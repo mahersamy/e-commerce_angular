@@ -1,0 +1,72 @@
+<!-- formControlName="name" type="text" -->
+
+
+
+<form [formGroup]="registerForm" class="w-[80%] m-auto" (ngSubmit)="register()">
+  @if (apiError) {
+    <div class="error rounded-lg mt-2 bg-red-100 p-3 text-red-700 border-l-4 border-red-500 shadow-sm">
+      <ul class="list-disc pl-4 space-y-1">
+        <li class="font-medium">{{ apiError }}</li>
+      </ul>
+    </div>
+  }
+  
+    <h2 class="text-4xl py-5">Register Now :</h2>
+    <div class="mb-5">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name :</label>
+        <app-custom-input formControlName="name" [id]="'name'"></app-custom-input>
+        @let nameControl=registerForm.get("name");
+       <app-error-message [control]="nameControl!"></app-error-message>
+      </div>
+    <div class="mb-5">
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email :</label>
+      <app-custom-input formControlName="email" [id]="'email'" [type]="'email'"></app-custom-input>
+      @let emailControl=registerForm.get("email");
+      <app-error-message [control]="emailControl!"></app-error-message>
+    </div>
+    <div class="mb-5">
+      <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password :</label>
+      <app-custom-input formControlName="password" [id]="'password'" [type]="'password'"></app-custom-input>
+      @let passwordControl=registerForm.get("password");
+      <app-error-message [control]="passwordControl!"></app-error-message>
+
+    </div>
+    <div class="mb-5">
+      <label for="rePassword" class="block mb-2 text-sm font-medium text-gray-900">rePassword :</label>
+      <app-custom-input formControlName="rePassword" [id]="'rePassword'" [type]="'password'"></app-custom-input>
+      @let rePasswordControl=registerForm.get("rePassword");
+      @if(rePasswordControl?.touched &&(rePasswordControl?.invalid||registerForm.hasError("misMatch"))){
+        <div class="error rounded mt-2 bg-red-100 p-2">
+          <ul>
+            @if(rePasswordControl?.hasError('required')){
+              <li>rePassword is required</li>
+            }@else if(registerForm.hasError("misMatch")){
+              <li>The password is not match</li>
+
+            }
+            
+          </ul>
+        </div>
+
+      }
+    </div>
+    <div class="mb-5">
+      <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Phone :</label>
+      <app-custom-input formControlName="phone" [id]="'phone'" [type]="'tel'"></app-custom-input>
+      @let phoneControl=registerForm.get("phone");
+      <app-error-message [control]="phoneControl!"></app-error-message>
+
+    </div>
+    <div class="flex justify-end my-1">
+      
+       
+        <button type="submit" [disabled]="isCallingApi"  class="text-white bg-bg-main rounded-md p-2">
+          @if(isCallingApi){
+            <i class="fa fa-spin fa-spinner p-3"></i>
+          }@else {
+            Register
+          }
+        </button>
+    </div>
+  </form>
+  

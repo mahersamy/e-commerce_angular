@@ -17,6 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "fileReplacements": [
+              {
+                "replace": "./src/app/core/environment/environment.ts",
+                "with": "./src/app/core/environment/environment.prod.ts"
+              }
+            ],
             "outputPath": "dist/fresh-cart",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -32,9 +38,15 @@
               }
             ],
             "styles": [
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css" ,
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/flowbite/dist/flowbite.min.js"
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -103,5 +115,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "55b0baae-795b-4c49-8606-612f152182f4"
   }
 }

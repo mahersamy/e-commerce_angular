@@ -1,0 +1,39 @@
+<div class="product group border border-gray-200 rounded-lg shadow-md overflow-hidden bg-white transition-all duration-300 hover:shadow-lg relative">
+    <a [routerLink]="['/',appRoutes.PRODUCTDETAIL,product.id]" >
+        <div class="w-full h-52 flex justify-center items-center bg-gray-100 relative">
+            <img class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" 
+                 [src]="product.imageCover" [alt]="product.title">
+        </div>
+         <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-all duration-300 "
+                (click)="toggleWishlist($event)">
+                @if(localWishList()){
+                    <i class="fa-solid fa-heart text-red-600 text-xl" ></i>
+
+                }@else {
+                    <i class="fa-solid fa-heart-broken text-xl" ></i>
+                }
+        </button>
+
+        <span class="block bg-bg-main text-white text-xs font-semibold px-3 py-1 rounded-full mt-2 mx-auto w-fit">
+            {{ product.category.name }}
+        </span>
+
+        <h2 class="text-lg font-semibold text-gray-800 mt-3 px-4 text-center truncate">
+            {{ product.title.split(' ', 2).join(' ') }}
+        </h2>
+
+        <div class="flex justify-between items-center px-4 py-2">
+            <p class="text-lg font-bold text-bg-main">{{ product.price }} EGP</p>
+            <p class="text-sm flex items-center text-gray-600">
+                <i class="text-yellow-400 fa fa-star mr-1"></i>{{ product.ratingsAverage }}
+            </p>
+        </div>
+    </a>
+
+    <button class="bg-bg-main text-white font-medium py-2 w-[90%] mx-auto block rounded-md opacity-0 
+                   transition-all duration-500 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
+                   (click)="handelAddToCart(product._id)">
+        Add to Cart
+    </button>
+</div>
+

@@ -1,0 +1,18 @@
+<div class="flex flex-col items-center justify-center h-screen bg-gray-100 px-4 text-center">
+    <i class="fa-solid fa-box-open text-gray-500 text-6xl mb-4"></i>
+  
+    <h2 class="text-2xl font-bold text-gray-800">Product Not Found</h2>
+    <p class="text-gray-600 mt-2 max-w-md">
+      Sorry, we couldn't find the product you're looking for. It may have been removed or is temporarily unavailable.
+    </p>
+  
+    <div class="mt-6 flex gap-4">
+      <a [routerLink]="['/',appRoutes.HOME]"   class="px-6 py-2 bg-bg-main text-white rounded-lg shadow hover:bg-bg-main-dark transition">
+        <i class="fa-solid fa-home mr-2"></i> Go to Home
+      </a>
+      <a [routerLink]="['/',appRoutes.PRODUCTS]" class="px-6 py-2 border border-gray-400 text-gray-700 rounded-lg hover:bg-gray-200 transition">
+        <i class="fa-solid fa-store mr-2"></i> Browse Products
+      </a>
+    </div>
+  </div>
+  

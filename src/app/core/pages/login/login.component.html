@@ -1,0 +1,44 @@
+
+<form [formGroup]="loginForm" class="w-[80%] m-auto" (ngSubmit)="logIn()">
+  @if (apiError) {
+    <div class="error rounded-lg mt-2 bg-red-100 p-3 text-red-700 border-l-4 border-red-500 shadow-sm">
+      <ul class="list-disc pl-4 space-y-1">
+        <li class="font-medium">{{ apiError }}</li>
+      </ul>
+    </div>
+  }
+  
+      <h2 class="text-4xl py-5">Login Now :</h2>
+      
+      <div class="mb-5">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email :</label>
+        <app-custom-input formControlName="email" [type]="'email'" [id]="'email'"  ></app-custom-input>
+        @let emailControl=loginForm.get("email");
+        <app-error-message [control]="emailControl!"></app-error-message>
+       
+      </div>
+      <div class="mb-5">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password :</label>
+        <app-custom-input formControlName="password" [type]="'password'" [id]="'password'"  ></app-custom-input>
+        @let passwordControl=loginForm.get("password");
+        <app-error-message [control]="passwordControl!"></app-error-message>
+      </div>
+      
+
+      <!-- forget password -->
+       <a [routerLink]="['/',appRoutes.AUTH,appRoutes.FORGETPASSWORD]" class="text-bg-main" >Forget Passsword</a>
+      
+      <div class="flex justify-end my-1">
+        
+         
+          <button type="submit" [disabled]="isCallingApi"  class="text-white bg-bg-main rounded-md p-2">
+            @if(isCallingApi){
+              <i class="fa fa-spin fa-spinner p-3"></i>
+            }@else {
+              Login
+            }
+          </button>
+      </div>
+    </form>
+    
+  

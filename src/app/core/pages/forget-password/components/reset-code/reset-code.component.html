@@ -1,0 +1,35 @@
+@if(validEmail()){
+    <div class="flex justify-center items-center bg-gray-400 bg-opacity-50 fixed top-0 left-0 right-0 bottom-0 ">
+        <form [formGroup]="resetForm" (ngSubmit)="verifyResetCode()" class="w-[80%] md:w-[50%] lg:w-[40%] m-auto p-5 border border-gray-300 rounded-lg shadow-md bg-white">
+            @if (apiError) {
+                <div class="error rounded-lg mt-2 bg-red-100 p-3 text-red-700 border-l-4 border-red-500 shadow-sm">
+                  <ul class="list-disc pl-4 space-y-1">
+                    <li class="font-medium">{{ apiError }}</li>
+                  </ul>
+                </div>
+              }
+            
+            <h2 class="text-xl font-semibold text-center mb-4 mt-2 text-gray-800">Enter Reset Code</h2>
+        
+            <div class="mb-5">
+                <label for="resetCode" class="block mb-2 text-sm font-medium text-gray-900">Reset Code:</label>
+                <app-custom-input formControlName="resetCode" [type]="'text'" [id]="'resetCode'"></app-custom-input>
+                @let resetCode=resetForm.get('resetCode');
+                <app-error-message [control]="resetCode!"></app-error-message>
+            </div>
+        
+            <button 
+                type="submit" 
+                class="w-full bg-bg-main text-white py-2 rounded-md transition duration-300 disabled:bg-gray-400" 
+                [disabled]="resetForm.invalid">
+                @if(isCallingApi){
+                    <i class="fa fa-spin fa-spinner p-3"></i>
+                  }@else {
+                    Verify Code
+        
+                  }
+            </button>
+        </form>
+        
+    </div>
+}

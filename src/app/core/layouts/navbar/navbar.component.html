@@ -1,0 +1,112 @@
+<nav class="bg-white border-b border-gray-200 sticky left-0 right-0 top-0 z-[100] shadow-md">
+  <div class="flex items-center justify-between mx-auto px-6 py-4">
+    
+    <!-- Left Section: Logo & Menu -->
+    <div class="flex items-center gap-x-4">
+      <a href="https://flowbite.com/" class="flex items-center">
+        <img src="images/freshcart-logo.svg" class="h-10" alt="Flowbite Logo" />
+      </a>
+
+      <!-- Main Menu (Visible Only if Logged In) -->
+      @if(isLogin){
+        <div class="absolute top-14 md:static left-0 right-0 hidden w-full md:block md:w-auto z-50"
+          [class.hidden]="!isShow">
+          <ul
+            class="font-medium flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse bg-white md:bg-transparent 
+                   p-4 md:p-0 mt-4 md:mt-0 border md:border-0 rounded-lg shadow-lg md:shadow-none 
+                   transition-all duration-300 ease-in-out">
+            <li>
+              <a [routerLink]="['/',appRoutes.HOME]" routerLinkActive="!text-bg-main"
+                class="block text-gray-600  transition duration-200">Home</a>
+            </li>
+           
+            <li>
+              <a [routerLink]="['/',appRoutes.PRODUCTS]" routerLinkActive="!text-bg-main"
+                class="block text-gray-600  transition duration-200">Product</a>
+            </li>
+            <li>
+              <a [routerLink]="['/',appRoutes.CATEGORIES]" routerLinkActive="!text-bg-main"
+                class="block text-gray-600  transition duration-200">Categories</a>
+            </li>
+            <li>
+              <a [routerLink]="['/',appRoutes.BRAND]" routerLinkActive="!text-bg-main"
+                class="block text-gray-600  transition duration-200">Brands</a>
+            </li>
+            <li>
+              <a [routerLink]="['/',appRoutes.ORDERS]" routerLinkActive="!text-bg-main"
+                class="block text-gray-600  transition duration-200">Orders</a>
+            </li>
+            <li>
+              <a [routerLink]="['/',appRoutes.FAVORITE]" routerLinkActive="!text-bg-main"
+                class="block text-gray-600  transition duration-200">Favorite</a>
+            </li>
+          </ul>
+        </div>
+      }
+    </div>
+
+    <div class="flex items-center gap-x-6 ">
+      <ul class="gap-x-3 text-gray-500 text-xl hidden lg:flex ">
+        <li>
+          <i class="fa-brands fa-instagram hover:text-pink-600 transition duration-200"></i>
+        </li>
+        <li>
+          <i class="fa-brands fa-facebook hover:text-blue-600 transition duration-200"></i>
+        </li>
+        <li>
+          <i class="fa-brands fa-tiktok hover:text-black transition duration-200"></i>
+        </li>
+        <li>
+          <i class="fa-brands fa-twitter hover:text-blue-400 transition duration-200"></i>
+        </li>
+        <li>
+          <i class="fa-brands fa-linkedin hover:text-blue-700 transition duration-200"></i>
+        </li>
+        <li>
+          <i class="fa-brands fa-youtube hover:text-red-600 transition duration-200"></i>
+        </li>
+      </ul>
+
+      @if(isLogin===true){
+
+          <a [routerLink]="['/',appRoutes.CARTS]" routerLinkActive="!text-bg-main"
+            class="block text-gray-600  transition duration-200 hover:text-bg-main relative"><i class="fa-solid fa-cart-shopping text-4xl"></i>
+            <span class="p-1 bg-red-500 text-white rounded-md absolute text-sm top-[-5px] left-[-5px]">{{countCart()}}</span>
+          </a>
+      }
+
+      <!-- Authentication Links -->
+      <div id="navbar-default">
+        <ul class="flex gap-x-4 text-gray-600 font-medium">
+          @if(!isLogin){
+            <li>
+              <a [routerLink]="appRoutes.LOGIN" routerLinkActive="!text-bg-main"
+               >Login</a>
+            </li>
+            <li>
+              <a [routerLink]="appRoutes.REGISTER" routerLinkActive="!text-bg-main"
+                >Register</a>
+            </li>
+          }
+          @if(isLogin){
+            <li>
+              <p (click)="signOut()" class="cursor-pointer hover:text-red-500 transition duration-200">Sign Out</p>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button data-collapse-toggle="navbar-default" type="button" (click)="changeHidden()"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg 
+             md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+
+  </div>
+</nav>

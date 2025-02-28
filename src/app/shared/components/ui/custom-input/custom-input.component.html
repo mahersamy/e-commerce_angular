@@ -1,0 +1,10 @@
+<input
+  [id]="id"
+  [type]="type"
+  [placeholder]="placeholder"
+  [value]="value"
+  (input)="handleInput($event)"
+  (blur)="onTouched()"
+  class="w-full p-3 border border-gray-300 rounded-lg text-gray-900 text-sm bg-gray-50 focus:ring-2 focus:ring-bg-main focus:border-bg-main transition-all duration-300 outline-none"
+  required
+/>

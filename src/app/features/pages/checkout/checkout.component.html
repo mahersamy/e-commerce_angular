@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+
+
+<section class="w-[50%] mx-auto">
+    <p class="text-4xl my-4 ">Checkout:</p>
+    <form [formGroup]="checkoutForm" (ngSubmit)="submitOrder()">
+
+        <div class="mb-5">
+            <label for="address" class="block mb-2 text-sm font-medium text-gray-900">Address :</label>
+            <app-custom-input formControlName="address" [type]="'text'" [id]="'address'"  ></app-custom-input>
+            @let addressControl=checkoutForm.get("address");
+            <app-error-message [control]="addressControl!"></app-error-message>
+           
+          </div>
+          <div class="mb-5">
+            <label for="city" class="block mb-2 text-sm font-medium text-gray-900">City :</label>
+            <app-custom-input formControlName="city" [type]="'text'" [id]="'city'"  ></app-custom-input>
+            @let cityControl=checkoutForm.get("city");
+            <app-error-message [control]="cityControl!"></app-error-message>
+          </div>
+    
+          <div class="mb-5">
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Phone :</label>
+            <app-custom-input formControlName="phone" [type]="'tel'" [id]="'phone'"  ></app-custom-input>
+            @let phoneControl=checkoutForm.get("phone");
+            <app-error-message [control]="phoneControl!"></app-error-message>
+          </div>
+
+
+          <div class="flex justify-between">
+            <button type="submit" [disabled]="isCallingApi" class="text-white bg-bg-main rounded-md px-4 py-2 my-2" (click)="setPaymentMethod(false)">
+              @if (isCallingApi) {
+                <i class="fa fa-spin fa-spinner p-3"></i>
+              } @else {
+                Cash
+              }
+            </button>
+        
+            <button type="submit" [disabled]="isCallingApi" class="text-white bg-bg-main rounded-md px-4 py-2 my-2" (click)="setPaymentMethod(true)">
+              @if (isCallingApi) {
+                <i class="fa fa-spin fa-spinner p-3"></i>
+              } @else {
+                Pay Now
+              }
+            </button>
+          </div>
+    
+    </form>
+</section>

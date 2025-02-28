@@ -1,0 +1,30 @@
+<div class="flex gap-4">
+  <div class="w-9/12 rounded-lg overflow-hidden shadow-lg">
+      <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide>
+              <img src="/images/slider-image-1.jpeg"
+                   class="h-[500px] w-full object-cover rounded-lg transition-all duration-500 transform hover:scale-105"
+                   alt="Slide 1">
+          </ng-template>
+          <ng-template carouselSlide>
+              <img src="/images/slider-image-2.jpeg"
+                   class="h-[500px] w-full object-cover rounded-lg transition-all duration-500 transform hover:scale-105"
+                   alt="Slide 2">
+          </ng-template>
+          <ng-template carouselSlide>
+              <img src="/images/slider-image-3.jpeg"
+                   class="h-[500px] w-full object-cover rounded-lg transition-all duration-500 transform hover:scale-105"
+                   alt="Slide 3">
+          </ng-template>
+      </owl-carousel-o>
+  </div>
+
+  <div class="w-3/12 flex flex-col justify-between gap-y-4">
+      <img src="images/grocery-banner.png"
+           class="h-[280px] w-full object-cover rounded-lg shadow-md transition-all duration-500 transform hover:scale-105"
+           alt="Grocery Banner 1">
+      <img src="images/grocery-banner-2.jpeg"
+           class="h-[280px] w-full object-cover rounded-lg shadow-md transition-all duration-500 transform hover:scale-105"
+           alt="Grocery Banner 2">
+  </div>
+</div>

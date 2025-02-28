@@ -1,0 +1,19 @@
+@if(control.invalid && control.touched){
+  <div class="error rounded-lg mt-2 bg-red-100 p-3 text-red-700 border-l-4 border-red-500 shadow-sm">
+    <ul class="list-disc pl-4 space-y-1">
+      @if(control.hasError('required')){
+        <li class="font-medium">This field is required</li>
+      } @else if (control.hasError("minlength")) {
+        <li class="font-medium">Minimum 3 characters required</li>
+      } @else if (control.hasError("maxlength")) {
+        <li class="font-medium">Maximum 10 characters allowed</li>
+      } @else if (control.hasError("email")) {
+        <li class="font-medium">Invalid email format (e.g., {{'example@example.com'}})</li>
+      } @else if (control.hasError("pattern") && control.getError("pattern").requiredPattern==="/^01[0125][0-9]{8}$/") {
+        <li class="font-medium">Please enter a valid phone number</li>
+      } @else if (control.hasError("pattern")) {
+        <li class="font-medium">Password must be strong</li>
+      }
+    </ul>
+  </div>
+}
