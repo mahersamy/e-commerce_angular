@@ -44,7 +44,7 @@ export class WishlistComponent implements OnInit{
 
   }
 
-  
+  // git with
   getWishList(){
     this._ngxSpinnerService.show();
     this._wishlistService.getAllWishList().pipe(this.destroy$).subscribe(
