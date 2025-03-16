@@ -1,59 +1,81 @@
-# FreshCart
+# 🚀 FreshCart
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+![Angular](https://img.shields.io/badge/Angular-19.0.6-red?style=flat-square&logo=angular)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-## Development server
+FreshCart is an Angular-based web application, built using **Angular CLI 19.0.6**. It follows modern best practices and is structured for scalability and maintainability.
 
-To start a local development server, run:
+---
 
+## 📌 Features
+✅ **Modern UI** with Tailwind CSS  
+✅ **Component-based architecture**  
+✅ **Dynamic Routing** with Angular Router  
+✅ **Service-based API calls**  
+✅ **Fully Responsive Design**  
+
+---
+
+## 🚀 Getting Started
+### 📦 Clone the Repository
+```bash
+git clone https://github.com/mahersamy/e-commerce_angular.git
+cd ElevateTask
+```
+
+### 📌 Install Dependencies
+```bash
+npm install
+```
+
+### 🔥 Start Development Server
 ```bash
 ng serve
 ```
+> Open your browser and navigate to `http://localhost:4200/`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+## 📌 Code Scaffolding
+Generate a new component:
 ```bash
 ng generate component component-name
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+For more schematics (components, directives, pipes, etc.), run:
 ```bash
 ng generate --help
 ```
 
-## Building
+---
 
-To build the project run:
-
+## 🏗 Building the Project
+Generate a production-ready build:
 ```bash
-ng build
+ng build --configuration=production
 ```
+> The compiled files will be available in the `dist/` directory.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🚀 Deployment
+The application is deployed on **Vercel**. You can access it here:
+🔗 [Live Demo](https://e-commerce-angular-2-44kh8y8wg-maher-samys-projects.vercel.app/)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+To deploy manually using Vercel CLI:
 ```bash
-ng test
+vercel --prod
 ```
+## 📚 Additional Resources
+- [Angular CLI Documentation](https://angular.dev/tools/cli)
+- [Angular Official Docs](https://angular.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📝 License
+This project is licensed under the **MIT License**.
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Made with ❤️ by Maher Samy
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
