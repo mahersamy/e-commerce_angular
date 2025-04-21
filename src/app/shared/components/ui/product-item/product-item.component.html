@@ -33,7 +33,12 @@
     <button class="bg-bg-main text-white font-medium py-2 w-[90%] mx-auto block rounded-md opacity-0 
                    transition-all duration-500 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
                    (click)="handelAddToCart(product._id)">
-        Add to Cart
+
+                   @if(isCallingApi){
+                    <i class="fa fa-spin fa-spinner p-3"></i>
+                  }@else {
+                    Add to Cart
+                  }
     </button>
 </div>
 

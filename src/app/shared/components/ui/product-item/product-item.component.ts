@@ -21,6 +21,7 @@ private readonly destroy$ = takeUntilDestroyed();
 
 isWishList:InputSignal<boolean | undefined>=input<boolean>();
 localWishList:WritableSignal<boolean> = signal<boolean>(false);
+isCallingApi:boolean=false;
 
 
 
@@ -28,7 +29,12 @@ localWishList:WritableSignal<boolean> = signal<boolean>(false);
 
 
 handelAddToCart(id:string){
-  this.fireAddToCart.emit(id);
+  this.isCallingApi=true;
+  setTimeout(() => {
+    this.fireAddToCart.emit(id);
+    this.isCallingApi=false;
+
+  }, 1200);
   
 }
 
@@ -70,8 +76,8 @@ addToWishList(id:string){
 
 toggleWishlist(event:Event){
   
-  event.preventDefault(); // Prevents default link behavior
-  event.stopPropagation(); // Prevents event bubbling
+  event.preventDefault(); 
+  event.stopPropagation();
   if(this.localWishList()){
     this.deleteWishList(this.product._id);
   }else{
